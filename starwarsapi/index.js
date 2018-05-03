@@ -17,5 +17,7 @@ exports.getbyid = (category, id) => {
     return _fetch(`${category}/${id}`)
 }
 
-
+exports.getCategories = () =>{
+    return _fetch()
+}
 

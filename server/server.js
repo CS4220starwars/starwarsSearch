@@ -1,12 +1,14 @@
 const
+    bodyParser = require('body-parser'),
     express = require('express'),
     path = require('path')
 
-const
-    app = express(),
-    server = require('http').Server(app)
+const app = express()
 
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '..', '/client')))
-require('./sockets')(server)
+app.use(require('./api/routes')())
 
-server.listen(8080)
+app.listen(8080, () => {
+    console.log('Server is running')
+})
