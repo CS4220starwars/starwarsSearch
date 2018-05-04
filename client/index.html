@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Card App</title>
+  <title>Star Wars API Search</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     [v-cloak] {
@@ -16,21 +16,38 @@
 
 <body>
   <div id="starwars">
-    <select v-model="selectedCategory">
+    <div v-show=!isViewingDetails>
+      <h3>Search the Star Wars API</h3>
+      <select v-model="selectedCategory">
         <option value='' selected="selected" disabled="disabled">Select a Category</option>
         <option v-for="category in categories">{{category}}</option>
-    </select>
+      </select>
+      <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
+      <button @click="searchApi(); clear();" class="btn btn-dark">Search</button>
+      <ol>
+        <li v-for="result in searchResults.slice(0,10)">
+          <search-component @click="viewDetails(result.index)" v-bind:content="result"></search-component>
+        </li>
+      </ol>
+    </div>
 
-    <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
-    <button @click="searchApi(); clear();" class="btn btn-dark">Search</button>
-
-    <ol>
-        <li v-for="result in searchResults">{{result}}</span></li>
-    </ol>
+    <div v-show=isViewingDetails>
+      {{currentDetails}}
+      <button @click="reset()" class="btn btn-dark">Search Again</button>
+    </div>
     <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </div>
 </body>
+
+
+<!-- <ol>
+        <li v-for="result in searchResults.slice(0,10)">
+          <span v-html="result">{{result}}</span>
+        </li>
+      </ol>
+  ## kept for potential use
+-->
 
 </html>
