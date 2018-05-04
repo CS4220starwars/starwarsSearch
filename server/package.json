@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "deckofcards": "file:../../deckofcards",
+    "starwarsapi": "file:../starwarsapi",
     "express": "^4.16.3"
   },
   "devDependencies": {},
