@@ -18,6 +18,6 @@ exports.getbyid = (category, id) => {
 }
 
 exports.getCategories = () =>{
-    return _fetch()
+    return _fetch('')
 }
 
