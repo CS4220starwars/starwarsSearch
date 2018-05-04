@@ -15,16 +15,17 @@
 </head>
 
 <body>
-  <select v-model="selectedCategory">
-    <option>planets</option>
-    <option>people</option>
-  </select>
-  <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
-  <button @click="searchApi()" class="btn btn-dark">Search</button>
-  <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>
-  <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
-
+  <div id="starwars">
+    <select v-model="selectedCategory">
+        <option value='' selected="selected" disabled="disabled">Select a Category</option>
+        <option v-for="category in categories">{{category}}</option>
+    </select>
+    <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
+    <button @click="searchApi()" class="btn btn-dark">Search</button>
+    <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </div>
 </body>
 
 </html>

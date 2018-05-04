@@ -5,11 +5,13 @@ let starwars = new Vue({
         // TODO Searched Stack
         selectedCategory: '', // Category selected in the <select> tag
         searchQuery: '', // Search query the user inputs
-        searchResults: ''
+        searchResults: '',
+        categories: ['planets','people','vehicles','films','species','starships']
     },
     methods: {
         searchApi: function () {
-            console.log("hello")
+            console.log(this.selectedCategory)
+            console.log(this.searchQuery)
             axios.get(`http://localhost:8080/search?category=${this.selectedCategory}&query=${this.searchQuery}`)
                 .then(response => {
                     console.log(response.data)
@@ -17,10 +19,8 @@ let starwars = new Vue({
                 })
         },
         clear: function () {
-            this.deck = {}
-            this.numberOfCards = ''
-            this.shuffle = ''
-            this.selectedCards = []
         }
+    },
+    mounted() {
     }
 })

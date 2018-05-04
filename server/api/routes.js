@@ -8,11 +8,16 @@ module.exports = () => {
     // localhost:8080/api/draw/?number=n&shuffle=true
     router.get('/search', (req, res) => {
         const { category = "people", query = "luke" } = req.query
-        starwars.search(category, query).then((results)=>{
+        starwars.search(category, query).then((results) => {
             res.json(results);
         })
     })
 
+    router.get('', (req, res) => {
+        starwars.getCategories().then((results) => {
+            res.json(results);
+        })
+    })
 
     return router
 }
