@@ -29,11 +29,11 @@ let starwars = new Vue({
         searchApi: function () {
             axios.get(`http://localhost:8080/search?category=${this.selectedCategory}&query=${this.searchQuery}`)
                 .then(response => {
-                    let dataLength = 10
+                    let dataLengthLimit = 10
                     if (response.data.results.length < 10) {
-                        dataLength = response.data.results.length
+                        dataLengthLimit = response.data.results.length
                     }
-                    for (let index = 1; index < dataLength + 1; index++) {
+                    for (let index = 1; index < dataLengthLimit + 1; index++) {
                         const result = response.data.results[index - 1]
                         const newResultObj = {}
                         if (result.name != null) {
@@ -46,7 +46,7 @@ let starwars = new Vue({
                         newResultObj.category = this.selectedCategory
                         this.searchResults.push(newResultObj)
                     }
-                    this.searchResultsArray = response.data.results.slice(0, dataLength)
+                    this.searchResultsArray = response.data.results.slice(0, dataLengthLimit)
                 })
         },
         viewDetails: function (number, category) {
