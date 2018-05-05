@@ -10,5 +10,5 @@ app.use(express.static(path.join(__dirname, '..', '/client')))
 app.use(require('./api/routes')())
 
 app.listen(8080, () => {
-    console.log('Server is running')
+    console.log('Star Wars Search API Server is now Running')
 })
