@@ -29,24 +29,24 @@ let starwars = new Vue({
         searchApi: function () {
             axios.get(`http://localhost:8080/search?category=${this.selectedCategory}&query=${this.searchQuery}`)
                 .then(response => {
-                    let index = 1
-                    response.data.results.forEach((result) => {
+                    let dataLength = 10
+                    if (response.data.results.length < 10) {
+                        dataLength = response.data.results.length
+                    }
+                    for (let index = 1; index < dataLength + 1; index++) {
+                        const result = response.data.results[index - 1]
                         const newResultObj = {}
                         if (result.name != null) {
                             newResultObj.name = result.name
-                            newResultObj.index = index
-                            newResultObj.category = this.selectedCategory
-                            this.searchResults.push(newResultObj)
                         }
                         else { // To handle film titles instead of character names
                             newResultObj.name = result.title
-                            newResultObj.index = index
-                            newResultObj.category = this.selectedCategory
-                            this.searchResults.push(newResultObj)
                         }
-                        index++;
-                    })
-                    this.searchResultsArray = response.data.results.slice(0,10)
+                        newResultObj.index = index
+                        newResultObj.category = this.selectedCategory
+                        this.searchResults.push(newResultObj)
+                    }
+                    this.searchResultsArray = response.data.results.slice(0, dataLength)
                 })
         },
         viewDetails: function (number, category) {
