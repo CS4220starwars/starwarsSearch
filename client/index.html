@@ -26,13 +26,16 @@
       <button @click="searchApi(); clear();" class="btn btn-dark">Search</button>
       <ol>
         <li v-for="result in searchResults.slice(0,10)">
-          <search-component @click="viewDetails(result.index)" v-bind:content="result"></search-component>
+          <search-component @click="viewDetails(result.index, result.category)" v-bind:content="result"></search-component>
         </li>
       </ol>
     </div>
 
     <div v-show=isViewingDetails>
-      {{currentDetails}}
+      <img src="https://seeklogo.com/images/S/Star_Wars-logo-B06952A462-seeklogo.com.png">
+      <br/>
+      <span v-html="currentDetails"></span>
+      <br/>
       <button @click="reset()" class="btn btn-dark">Search Again</button>
     </div>
     <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>

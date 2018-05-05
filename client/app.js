@@ -35,11 +35,13 @@ let starwars = new Vue({
                         if (result.name != null) {
                             newResultObj.name = result.name
                             newResultObj.index = index
+                            newResultObj.category = this.selectedCategory
                             this.searchResults.push(newResultObj)
                         }
                         else { // To handle film titles instead of character names
                             newResultObj.name = result.title
                             newResultObj.index = index
+                            newResultObj.category = this.selectedCategory
                             this.searchResults.push(newResultObj)
                         }
                         index++;
@@ -47,16 +49,119 @@ let starwars = new Vue({
                     this.searchResultsArray = response.data.results
                 })
         },
-        viewDetails: function (number) {
-            this.currentDetails= this.searchResultsArray[number-1]
-            this.isViewingDetails=true;
+        viewDetails: function (number, category) {
+            this.isViewingDetails = true;
+            switch (category) {
+                case "films":  // FILMS ------------------
+                    this.printFilms(number)
+                    break;
+                case "people": // PEOPLE --------------------------------
+                    this.printPeople(number)
+                    break;
+                case "planets": //PLANETS
+                    this.printPlanets(number)
+                    break;
+                case "species":   //SPECIES -----------------------------------
+                    this.printSpecies(number)
+                    break;
+                case "starships":  // STARSHIPS     ---------------------
+                    this.printStarships(number)
+                    break;
+                case "vehicles": // VEHICLES ---------
+                    this.printVehicles(number)
+                    break;
+                default:
+                    console.log(object);
+                    break;
+            }
+        },
+        printFilms: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.title}<br/>
+                Episode: ${retrievedResults.episode_id}<br/>
+                Director: ${retrievedResults.director}<br/>
+                Producer: ${retrievedResults.producer}<br/>
+                Release Date: ${retrievedResults.release_date}<br/>
+            `
+        },
+        printPeople: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.name}<br/>
+                        Birth Year: ${retrievedResults.birth_year}<br/>
+                        Eye Color: ${retrievedResults.eye_color}<br/>
+                        Hair Color: ${retrievedResults.hair_color}<br/>
+                        Gender: ${retrievedResults.gender}<br/>
+                        Height: ${retrievedResults.height}<br/>
+                        Weight: ${retrievedResults.mass}<br/>
+                        Skin Color: ${retrievedResults.skin_color}<br/>
+                        Homeworld: ${retrievedResults.homeworld}<br/>
+                `
+        },
+        printPlanets: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.name}<br/>
+                Diameter: ${retrievedResults.diameter}<br/>
+                Rotation period: ${retrievedResults.rotation_period}<br/>
+                Orbital period: ${retrievedResults.orbital_period}<br/>
+                Gravity: ${retrievedResults.gravity}<br/>
+                Population: ${retrievedResults.population}<br/>
+                Climate: ${retrievedResults.climate}<br/>
+                Terrain: ${retrievedResults.terrain}<br/>
+                Surface water: ${retrievedResults.surface_water}<br/>
+            `
+        },
+        printSpecies: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.name}<br/>
+                Average Height: ${retrievedResults.average_height}<br/>
+                Average Lifespan: ${retrievedResults.average_lifespan}<br/>
+                Classification: ${retrievedResults.classification} <br/>
+                Designation: ${retrievedResults.designation}<br/>       
+                Eye Colors: ${retrievedResults.eye_colors}<br/>
+                Hair Colors: ${retrievedResults.hair_colors}<br/>
+                Skin Colors: ${retrievedResults.skin_colors} <br/> 
+                Homeworld: ${retrievedResults.homeworld}<br/>
+                Language: ${retrievedResults.language}<br/>                        
+             `
+        },
+        printStarships: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.name}<br/>
+                Model: ${retrievedResults.model}<br/>
+                Class: ${retrievedResults.starship_class}<br/>
+                Manufacturer: ${retrievedResults.manufacturer}<br/>
+                Length: ${retrievedResults.length} feet<br/>
+                Cost: ${retrievedResults.cost_in_credits} credits <br/>
+                Passengers: ${retrievedResults.passengers}<br/>
+                Crew: ${retrievedResults.crew}<br/>
+                Cargo: ${retrievedResults.cargo_capacity}<br/>
+                Max atmospheric Pressure: ${retrievedResults.max_atmosphering_speed} km/h<br/>
+                `
+        },
+        printVehicles: function (number) {
+            const retrievedResults = this.searchResultsArray[number - 1]
+            this.currentDetails =
+                `Name: ${retrievedResults.name}<br/>
+                Model: ${retrievedResults.model}<br/>
+                Class: ${retrievedResults.vehicle_class}<br/>
+                Manufacturer: ${retrievedResults.manufacturer}<br/>
+                Length: ${retrievedResults.length} feet<br/>
+                Cost: ${retrievedResults.cost_in_credits} credits<br/>
+                Length: ${retrievedResults.max_atmosphering_speed} km/h <br/>
+                Passengers: ${retrievedResults.crew}<br/>
+                 `
         },
         clear: function () {
             this.searchResults = []
         },
-        reset: function (){
-            this.isViewingDetails=false;
-            this.searchResults= []
+        reset: function () {
+            this.isViewingDetails = false;
+            this.searchResults = []
         }
     },
     mounted() {
