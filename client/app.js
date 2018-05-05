@@ -46,7 +46,7 @@ let starwars = new Vue({
                         }
                         index++;
                     })
-                    this.searchResultsArray = response.data.results
+                    this.searchResultsArray = response.data.results.slice(0,10)
                 })
         },
         viewDetails: function (number, category) {

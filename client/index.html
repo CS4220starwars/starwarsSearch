@@ -24,8 +24,9 @@
       </select>
       <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
       <button @click="searchApi(); clear();" class="btn btn-dark">Search</button>
+
       <ol>
-        <li v-for="result in searchResults.slice(0,10)">
+        <li v-for="result in searchResults">
           <search-component @click="viewDetails(result.index, result.category)" v-bind:content="result"></search-component>
         </li>
       </ol>
@@ -43,14 +44,4 @@
     <script type="text/javascript" src="app.js"></script>
   </div>
 </body>
-
-
-<!-- <ol>
-        <li v-for="result in searchResults.slice(0,10)">
-          <span v-html="result">{{result}}</span>
-        </li>
-      </ol>
-  ## kept for potential use
--->
-
 </html>
