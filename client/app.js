@@ -29,12 +29,12 @@ let starwars = new Vue({
         searchApi: function () {
             axios.get(`http://localhost:8080/search?category=${this.selectedCategory}&query=${this.searchQuery}`)
                 .then(response => {
-                    let dataLengthLimit = 10
+                    let resultLengthLimit = 10
                     if (response.data.results.length < 10) {
-                        dataLengthLimit = response.data.results.length
+                        resultLengthLimit = response.data.results.length
                     }
-                    for (let index = 1; index < dataLengthLimit + 1; index++) {
-                        const result = response.data.results[index - 1]
+                    for (let index = 0; index < resultLengthLimit; index++) {
+                        const result = response.data.results[index]
                         const newResultObj = {}
                         if (result.name != null) {
                             newResultObj.name = result.name
@@ -46,7 +46,7 @@ let starwars = new Vue({
                         newResultObj.category = this.selectedCategory
                         this.searchResults.push(newResultObj)
                     }
-                    this.searchResultsArray = response.data.results.slice(0, dataLengthLimit)
+                    this.searchResultsArray = response.data.results.slice(0, resultLengthLimit)
                 })
         },
         viewDetails: function (number, category) {
@@ -76,7 +76,7 @@ let starwars = new Vue({
             }
         },
         printFilms: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.title}<br/>
                 Episode: ${retrievedResults.episode_id}<br/>
@@ -86,7 +86,7 @@ let starwars = new Vue({
             `
         },
         printPeople: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.name}<br/>
                         Birth Year: ${retrievedResults.birth_year}<br/>
@@ -100,7 +100,7 @@ let starwars = new Vue({
                 `
         },
         printPlanets: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.name}<br/>
                 Diameter: ${retrievedResults.diameter}<br/>
@@ -114,7 +114,7 @@ let starwars = new Vue({
             `
         },
         printSpecies: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.name}<br/>
                 Average Height: ${retrievedResults.average_height}<br/>
@@ -129,7 +129,7 @@ let starwars = new Vue({
              `
         },
         printStarships: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.name}<br/>
                 Model: ${retrievedResults.model}<br/>
@@ -144,7 +144,7 @@ let starwars = new Vue({
                 `
         },
         printVehicles: function (number) {
-            const retrievedResults = this.searchResultsArray[number - 1]
+            const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
                 `Name: ${retrievedResults.name}<br/>
                 Model: ${retrievedResults.model}<br/>
