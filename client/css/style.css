@@ -1,6 +1,15 @@
+body {
+  padding: 50px;
+ 
+}
+
 .title{
     text-align: center;
     text-decoration: underline;
+}
+
+.subtitle {
+  text-align: center;
 }
 .button{
     text-align: center
@@ -61,3 +70,12 @@
 .queries{
     list-style-type: disc;
 }
+
+#details { 
+  background-color: #209cee;
+  color: white;
+  padding-right: 10px;
+  
+
+}
+
