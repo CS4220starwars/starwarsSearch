@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+
+    function deactivateButton() {
+      const button = document.getElementById("searchButton")
+      button.disabled = true
+      setTimeout(activateButton, 500)
+    }
+    function activateButton() {
+      const button = document.getElementById("searchButton")
+      button.disabled = false
+    }
+
+  </script>
   <style>
     [v-cloak] {
       display: none;
@@ -38,7 +51,7 @@
         <br>
         <input class="input is-info" v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
         <br>
-        <button @click="searchApi(); clear();" class="button is-info is medium">Search</button>
+        <button id="searchButton" @click="deactivateButton(); searchApi(); clear();" class="button is-info is medium">Search</button>
         <aside class="menu">
           <p class="menu-label">
             Results
@@ -54,7 +67,7 @@
 
       <div v-show=isViewingDetails>
         <span id="details" class="columns is-two-fifths ">
-          <img src="https://seeklogo.com/images/S/Star_Wars-logo-B06952A462-seeklogo.com.png">
+          <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/320px-Star_Wars_Logo.svg.png">
           <span v-html="currentDetails"></span>
         </span>
         <button @click="reset()" class="button is-info is-outlined">Search Again</button>
@@ -65,4 +78,5 @@
     <script type="text/javascript" src="app.js"></script>
   </div>
 </body>
+
 </html>

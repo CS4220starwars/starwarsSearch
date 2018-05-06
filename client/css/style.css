@@ -1,8 +1,19 @@
 body {
   padding: 50px;
- 
+  background: url("https://i.imgur.com/U0AWqkX.jpg");
+  background-repeat: repeat;
 }
 
+html{
+  background: url("https://i.imgur.com/U0AWqkX.jpg");
+  background-repeat: repeat;
+}
+
+.image{
+  border-width: 9px;
+  border-style: solid;
+  border-color: dodgerblue;
+}
 .title{
     text-align: center;
     text-decoration: underline;
@@ -12,13 +23,15 @@ body {
   text-align: center;
 }
 .button{
-    text-align: center
+    text-align: center;
 }
-
+.hero-body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
   /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
-  font-family: Arial;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .custom-select select {
   display: none; /*hide original SELECT element:*/

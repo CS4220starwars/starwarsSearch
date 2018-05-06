@@ -78,82 +78,82 @@ let starwars = new Vue({
         printFilms: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.title}<br/>
-                Episode: ${retrievedResults.episode_id}<br/>
-                Director: ${retrievedResults.director}<br/>
-                Producer: ${retrievedResults.producer}<br/>
-                Release Date: ${retrievedResults.release_date}<br/>
+                `&nbsp;&nbsp;Name: ${retrievedResults.title}<br/>
+                &nbsp;&nbsp;Episode: ${retrievedResults.episode_id}<br/>
+                &nbsp;&nbsp;Director: ${retrievedResults.director}<br/>
+                &nbsp;&nbsp;Producer: ${retrievedResults.producer}<br/>
+                &nbsp;&nbsp;Release Date: ${retrievedResults.release_date}<br/>
             `
         },
         printPeople: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.name}<br/>
-                        Birth Year: ${retrievedResults.birth_year}<br/>
-                        Eye Color: ${retrievedResults.eye_color}<br/>
-                        Hair Color: ${retrievedResults.hair_color}<br/>
-                        Gender: ${retrievedResults.gender}<br/>
-                        Height: ${retrievedResults.height}<br/>
-                        Weight: ${retrievedResults.mass}<br/>
-                        Skin Color: ${retrievedResults.skin_color}<br/>
-                        Homeworld: ${retrievedResults.homeworld}<br/>
+                `&nbsp;&nbsp;Name: ${retrievedResults.name}<br/>
+                &nbsp;&nbsp;Birth Year: ${retrievedResults.birth_year}<br/>
+                &nbsp;&nbsp;Eye Color: ${retrievedResults.eye_color}<br/>
+                &nbsp;&nbsp;Hair Color: ${retrievedResults.hair_color}<br/>
+                &nbsp;&nbsp;Gender: ${retrievedResults.gender}<br/>
+                &nbsp;&nbsp;Height: ${retrievedResults.height}<br/>
+                &nbsp;&nbsp;Weight: ${retrievedResults.mass}<br/>
+                &nbsp;&nbsp;Skin Color: ${retrievedResults.skin_color}<br/>
+                &nbsp;&nbsp;Homeworld: ${retrievedResults.homeworld}<br/>
                 `
         },
         printPlanets: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.name}<br/>
-                Diameter: ${retrievedResults.diameter}<br/>
-                Rotation period: ${retrievedResults.rotation_period}<br/>
-                Orbital period: ${retrievedResults.orbital_period}<br/>
-                Gravity: ${retrievedResults.gravity}<br/>
-                Population: ${retrievedResults.population}<br/>
-                Climate: ${retrievedResults.climate}<br/>
-                Terrain: ${retrievedResults.terrain}<br/>
-                Surface water: ${retrievedResults.surface_water}<br/>
+                `&nbsp;&nbsp;Name: ${retrievedResults.name}<br/>
+                &nbsp;&nbsp;Diameter: ${retrievedResults.diameter}<br/>
+                &nbsp;&nbsp;Rotation period: ${retrievedResults.rotation_period}<br/>
+                &nbsp;&nbsp;Orbital period: ${retrievedResults.orbital_period}<br/>
+                &nbsp;&nbsp;Gravity: ${retrievedResults.gravity}<br/>
+                &nbsp;&nbsp;Population: ${retrievedResults.population}<br/>
+                &nbsp;&nbsp;Climate: ${retrievedResults.climate}<br/>
+                &nbsp;&nbsp;Terrain: ${retrievedResults.terrain}<br/>
+                &nbsp;&nbsp;Surface water: ${retrievedResults.surface_water}<br/>
             `
         },
         printSpecies: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.name}<br/>
-                Average Height: ${retrievedResults.average_height}<br/>
-                Average Lifespan: ${retrievedResults.average_lifespan}<br/>
-                Classification: ${retrievedResults.classification} <br/>
-                Designation: ${retrievedResults.designation}<br/>       
-                Eye Colors: ${retrievedResults.eye_colors}<br/>
-                Hair Colors: ${retrievedResults.hair_colors}<br/>
-                Skin Colors: ${retrievedResults.skin_colors} <br/> 
-                Homeworld: ${retrievedResults.homeworld}<br/>
-                Language: ${retrievedResults.language}<br/>                        
+                `&nbsp;&nbsp;Name: ${retrievedResults.name}<br/>
+                &nbsp;&nbsp;Average Height: ${retrievedResults.average_height}<br/>
+                &nbsp;&nbsp;Average Lifespan: ${retrievedResults.average_lifespan}<br/>
+                &nbsp;&nbsp;Classification: ${retrievedResults.classification} <br/>
+                &nbsp;&nbsp;Designation: ${retrievedResults.designation}<br/>       
+                &nbsp;&nbsp;Eye Colors: ${retrievedResults.eye_colors}<br/>
+                &nbsp;&nbsp;Hair Colors: ${retrievedResults.hair_colors}<br/>
+                &nbsp;&nbsp;Skin Colors: ${retrievedResults.skin_colors} <br/> 
+                &nbsp;&nbsp;Homeworld: ${retrievedResults.homeworld}<br/>
+                &nbsp;&nbsp;Language: ${retrievedResults.language}<br/>                        
              `
         },
         printStarships: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.name}<br/>
-                Model: ${retrievedResults.model}<br/>
-                Class: ${retrievedResults.starship_class}<br/>
-                Manufacturer: ${retrievedResults.manufacturer}<br/>
-                Length: ${retrievedResults.length} feet<br/>
-                Cost: ${retrievedResults.cost_in_credits} credits <br/>
-                Passengers: ${retrievedResults.passengers}<br/>
-                Crew: ${retrievedResults.crew}<br/>
-                Cargo: ${retrievedResults.cargo_capacity}<br/>
-                Max atmospheric Pressure: ${retrievedResults.max_atmosphering_speed} km/h<br/>
+                `&nbsp;&nbsp;Name: ${retrievedResults.name}<br/>
+                &nbsp;&nbsp;Model: ${retrievedResults.model}<br/>
+                &nbsp;&nbsp;Class: ${retrievedResults.starship_class}<br/>
+                &nbsp;&nbsp;Manufacturer: ${retrievedResults.manufacturer}<br/>
+                &nbsp;&nbsp;Length: ${retrievedResults.length} feet<br/>
+                &nbsp;&nbsp;Cost: ${retrievedResults.cost_in_credits} credits <br/>
+                &nbsp;&nbsp;Passengers: ${retrievedResults.passengers}<br/>
+                &nbsp;&nbsp;Crew: ${retrievedResults.crew}<br/>
+                &nbsp;&nbsp;Cargo: ${retrievedResults.cargo_capacity}<br/>
+                &nbsp;&nbsp;Max atmospheric Pressure: ${retrievedResults.max_atmosphering_speed} km/h<br/>
                 `
         },
         printVehicles: function (number) {
             const retrievedResults = this.searchResultsArray[number]
             this.currentDetails =
-                `Name: ${retrievedResults.name}<br/>
-                Model: ${retrievedResults.model}<br/>
-                Class: ${retrievedResults.vehicle_class}<br/>
-                Manufacturer: ${retrievedResults.manufacturer}<br/>
-                Length: ${retrievedResults.length} feet<br/>
-                Cost: ${retrievedResults.cost_in_credits} credits<br/>
-                Length: ${retrievedResults.max_atmosphering_speed} km/h <br/>
-                Passengers: ${retrievedResults.crew}<br/>
+                `&nbsp;&nbsp;Name: ${retrievedResults.name}<br/>
+                &nbsp;&nbsp;Model: ${retrievedResults.model}<br/>
+                &nbsp;&nbsp;Class: ${retrievedResults.vehicle_class}<br/>
+                &nbsp;&nbsp;Manufacturer: ${retrievedResults.manufacturer}<br/>
+                &nbsp;&nbsp;Length: ${retrievedResults.length} feet<br/>
+                &nbsp;&nbsp;Cost: ${retrievedResults.cost_in_credits} credits<br/>
+                &nbsp;&nbsp;Length: ${retrievedResults.max_atmosphering_speed} km/h <br/>
+                &nbsp;&nbsp;Passengers: ${retrievedResults.crew}<br/>
                  `
         },
         clear: function () {
