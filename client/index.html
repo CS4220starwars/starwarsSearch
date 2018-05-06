@@ -34,7 +34,7 @@
   <div id="starwars">
     <div class="container">
       <div v-show=!isViewingDetails>
-        <section class="hero is-info">
+        <section class="hero is-danger">
           <div class="hero-body">
             <div class="container">
               <h1 class="title">Star Wars</h1>
@@ -49,16 +49,16 @@
         </select>
         <br>
         <br>
-        <input class="input is-info" v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
+        <input class="input is-danger" v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
         <br>
-        <button id="searchButton" @click="deactivateButton(); searchApi(); clear();" class="button is-info is medium">Search</button>
+        <button id="searchButton" @click="deactivateButton(); searchApi(); clear();" class="button is-danger is medium">Search</button>
         <aside class="menu">
           <p class="menu-label">
             Results
           </p>
           <ul class="menu-list">
             <li v-for="result in searchResults">
-              <search-component class="button is-info is-outlined" @click="viewDetails(result.index, result.category)" v-bind:data="result"></search-component>
+              <search-component class="button is-danger is-outlined" @click="viewDetails(result.index, result.category)" v-bind:data="result"></search-component>
               <br>
             </li>
           </ul>
@@ -70,7 +70,7 @@
           <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/320px-Star_Wars_Logo.svg.png">
           <span v-html="currentDetails"></span>
         </span>
-        <button @click="reset()" class="button is-info is-outlined">Search Again</button>
+        <button @click="reset()" class="button is-danger is-outlined">Search Again</button>
       </div>
     </div>
     <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>
