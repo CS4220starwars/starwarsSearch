@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Star Wars API Search</title>
+<link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/320px-Star_Wars_Logo.svg.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -42,16 +43,19 @@
             </div>
           </div>
         </section>
-
+        <!-- Drop Down Menu -->
         <select class="custom-select" v-model="selectedCategory">
           <option value='' selected="selected" disabled="disabled">Select a Category</option>
           <option v-for="category in categories">{{category}}</option>
         </select>
         <br>
         <br>
+        <!-- Input -->  
         <input class="input is-info" v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
         <br>
+        <!-- Search Button -->  
         <button id="searchButton" @click="deactivateButton(); searchApi(); clear();" class="button is-info is medium">Search</button>
+        <!-- Show Results -->
         <aside class="menu">
           <p class="menu-label">
             Results
@@ -64,14 +68,16 @@
           </ul>
         </aside>
       </div>
-
+    <!-- Show Result -->
       <div v-show=isViewingDetails>
         <span id="details" class="columns is-two-fifths ">
           <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/320px-Star_Wars_Logo.svg.png">
           <span v-html="currentDetails"></span>
         </span>
+     <!-- Search Again Buttom -->      
         <button @click="reset()" class="button is-info is-outlined">Search Again</button>
       </div>
+        
     </div>
     <script type="text/javascript" src="https://unpkg.com/vue@2.5.15/dist/vue.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
