@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Star Wars API Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
   <style>
     [v-cloak] {
       display: none;
@@ -17,19 +20,35 @@
 <body>
   <div id="starwars">
     <div v-show=!isViewingDetails>
-      <h3>Search the Star Wars API</h3>
-      <select v-model="selectedCategory">
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">Star Wars</h1>
+                    <h1 class="subtitle">Search for a particular category on Star Wars</h1>
+                </div>
+            </div>
+        </section>
+     
+      <select class="custom-select" v-model="selectedCategory">
         <option value='' selected="selected" disabled="disabled">Select a Category</option>
         <option v-for="category in categories">{{category}}</option>
       </select>
-      <input v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
-      <button @click="searchApi(); clear();" class="btn btn-dark">Search</button>
-
-      <ol>
+        <br>
+           <br>
+      <input class="input is-info" v-model="searchQuery" class="form-control" placeholder="Enter a term to search the Star Wars API">
+        <br>
+      <button @click="searchApi(); clear();" class="button is-info is medium">Search</button>
+    <aside class="menu">
+        <p class="menu-label">
+          Results
+        </p>
+      <ul class="menu-list" >
         <li v-for="result in searchResults">
-          <search-component @click="viewDetails(result.index, result.category)" v-bind:data="result"></search-component>
+          <search-component  class="button is-info is-outlined"@click="viewDetails(result.index, result.category)" v-bind:data="result"></search-component>
+            <br>
         </li>
-      </ol>
+      </ul>
+    </aside>        
     </div>
 
     <div v-show=isViewingDetails>
