@@ -12,7 +12,7 @@ html{
 .image{
   border-width: 9px;
   border-style: solid;
-  border-color: crimson;
+  border-color: dodgerblue;
 }
 .title{
     text-align: center;
@@ -85,7 +85,7 @@ html{
 }
 
 #details { 
-  background-color: crimson;
+  background-color: dodgerblue;
   color: white;
   padding-right: 10px;
   
