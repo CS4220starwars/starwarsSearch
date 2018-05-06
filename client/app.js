@@ -1,9 +1,9 @@
 const searchComponent = {
     template: ` <div @click="clickEvent">
-                     <span v-html="content.name"></span>
+                     <span v-html="data.name"></span>
                      <br/>
                 </div>`,
-    props: ['content'],
+    props: ['data'],
     methods: {
         clickEvent() {
             this.$emit('click')

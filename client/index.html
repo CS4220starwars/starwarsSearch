@@ -27,7 +27,7 @@
 
       <ol>
         <li v-for="result in searchResults">
-          <search-component @click="viewDetails(result.index, result.category)" v-bind:content="result"></search-component>
+          <search-component @click="viewDetails(result.index, result.category)" v-bind:data="result"></search-component>
         </li>
       </ol>
     </div>
